@@ -8,6 +8,8 @@
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/lp_butterworth_respuesta.png}
+	\caption{Respuesta en magnitud del filtro pasa-bajas Butterworth de 4.\textsuperscript{o} orden.}
+	\label{fig:lp_butterworth_respuesta}
 \end{figure}
 
 \begin{table}[H]
@@ -28,35 +30,33 @@
 		Frecuencia banda rechazo & 4\,kHz \\
 		\hline
 	\end{tabular}
+	\caption{Parámetros de diseño del filtro pasa-bajas Butterworth.}
+	\label{tab:lp_butterworth}
 \end{table}
-
-\textbf{STAGES}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/lp_butterworth_etapas.png}
+	\caption{Configuración de etapas (\textit{Stages}) del filtro pasa-bajas Butterworth: dos etapas de segundo orden.}
+	\label{fig:lp_butterworth_etapas}
 \end{figure}
 
-\subsubsection{¿Qué es Q?}
+\subsubsection{¿Qué es $Q$?}
 
-No quiero que solamente copies ese número sin saber qué significa.
+No basta con copiar el número sin entender qué significa. El factor de calidad $Q$ describe qué tan ``selectiva'' o resonante es una etapa de segundo orden.
 
-El factor de calidad $Q$ describe qué tan ``selectiva'' o resonante es una etapa de segundo orden.
-
-En un Butterworth de cuarto orden, las dos etapas no tienen necesariamente el mismo $Q$.
-
-Aproximadamente tendremos:
+En un Butterworth de cuarto orden, las dos etapas no tienen necesariamente el mismo $Q$; aproximadamente tendremos:
 \begin{equation*}
 	Q_1 \approx 0.541 \qquad Q_2 \approx 1.307
 \end{equation*}
 
-Esto es normal.
-
-\textbf{CIRCUIT}
+Esto es normal: cada etapa aporta un factor de calidad distinto para lograr la respuesta máximamente plana.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{img/lp_butterworth_circuito.png}
+	\caption{Circuito del filtro pasa-bajas Butterworth (topología Sallen--Key).}
+	\label{fig:lp_butterworth_circuito}
 \end{figure}
 
 % ------------------------------------------------------------
@@ -65,20 +65,22 @@ Esto es normal.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/lp_chebyshev_respuesta.png}
+	\caption{Respuesta en magnitud del filtro pasa-bajas Chebyshev de 3.\textsuperscript{er} orden (rizo de 3\,dB en la banda de paso).}
+	\label{fig:lp_chebyshev_respuesta}
 \end{figure}
-
-\textbf{Stages}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/lp_chebyshev_etapas.png}
+	\caption{Configuración de etapas (\textit{Stages}) del filtro pasa-bajas Chebyshev.}
+	\label{fig:lp_chebyshev_etapas}
 \end{figure}
-
-\textbf{Circuito}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{img/lp_chebyshev_circuito.png}
+	\caption{Circuito del filtro pasa-bajas Chebyshev.}
+	\label{fig:lp_chebyshev_circuito}
 \end{figure}
 
 % ------------------------------------------------------------
@@ -87,18 +89,20 @@ Esto es normal.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/lp_bessel_respuesta.png}
+	\caption{Respuesta en magnitud del filtro pasa-bajas Bessel de 6.\textsuperscript{o} orden.}
+	\label{fig:lp_bessel_respuesta}
 \end{figure}
-
-\textbf{Stages}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/lp_bessel_etapas.png}
+	\caption{Configuración de etapas (\textit{Stages}) del filtro pasa-bajas Bessel: tres etapas de segundo orden.}
+	\label{fig:lp_bessel_etapas}
 \end{figure}
-
-\textbf{Circuito}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{img/lp_bessel_circuito.png}
+	\caption{Circuito del filtro pasa-bajas Bessel.}
+	\label{fig:lp_bessel_circuito}
 \end{figure}
