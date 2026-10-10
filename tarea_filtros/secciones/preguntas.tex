@@ -1,0 +1,53 @@
+% ============================================================
+% Preguntas de análisis
+% ============================================================
+\section{Pregunta 1: ¿Qué diferencias existen entre el Filtro Paso Altas, Filtro Paso Bajas y Filtro Paso Banda?}
+
+Basándonos en la configuración de parámetros y la forma de la respuesta en frecuencia observada en las gráficas de simulación:
+
+\begin{itemize}
+	\item \textbf{Filtro Paso Bajas (Low-Pass):}
+	\begin{itemize}
+		\item \textbf{Comportamiento simulado:} Deja pasar la señal limpia a $0$\,dB desde $0$\,Hz hasta la frecuencia de paso de $1$\,kHz (Banda de Paso). A partir de ahí, la magnitud disminuye gradualmente hasta alcanzar una atenuación de $-40$\,dB a los $4$\,kHz (Banda de Atenuación).
+		\item \textbf{Función:} Elimina componentes de alta frecuencia y ruido, dejando intactas las frecuencias bajas.
+	\end{itemize}
+	\item \textbf{Filtro Paso Altas (High-Pass):}
+	\begin{itemize}
+		\item \textbf{Comportamiento simulado:} Bloquea las frecuencias bajas (atenuación de $-40$\,dB de $0$\,Hz hasta $1$\,kHz) y permite el paso libre a $0$\,dB a partir de $4$\,kHz hacia adelante.
+		\item \textbf{Función:} Elimina componentes continuas (DC) o ruidos de baja frecuencia, dejando pasar únicamente las componentes de alta frecuencia.
+	\end{itemize}
+	\item \textbf{Filtro Paso Banda (Band-Pass):}
+	\begin{itemize}
+		\item \textbf{Comportamiento simulado:} Combina ambas acciones definiendo un ancho de banda útil de $3$\,kHz centrado en $2$\,kHz. Mantiene la ganancia en $0$\,dB en el centro y atenuación de $-40$\,dB tanto hacia frecuencias bajas ($325$\,Hz) como hacia frecuencias altas ($12.3$\,kHz).
+		\item \textbf{Función:} Delimita una ventana específica de frecuencias de interés y rechaza todo lo que quede por encima o por debajo de esta banda.
+	\end{itemize}
+\end{itemize}
+
+\section{Pregunta 2: ¿Qué diferencias existen entre el Filtro Butterworth, Chebyshev y Bessel?}
+
+A partir de la comparación del comportamiento del circuito y el número de etapas requeridas (\textit{stages}) registrado por el simulador:
+
+\begin{table}[H]
+	\centering
+	\footnotesize
+	\renewcommand{\arraystretch}{1.3}
+	\begin{tabular}{|p{2.3cm}|p{4.4cm}|p{4.4cm}|p{4.4cm}|}
+		\hline
+		\textbf{Característica} & \textbf{Butterworth} & \textbf{Chebyshev} & \textbf{Bessel} \\
+		\hline
+		Respuesta en la banda de paso & Máxima planitud: la ganancia se mantiene plana, sin rizado, antes de la frecuencia de corte. & Presenta ondulaciones o rizado (ripple) en la banda de paso, a cambio de una transición más rápida. & Presenta una caída más suave y redondeada cerca de la frecuencia de corte. \\
+		\hline
+		Velocidad de caída (pendiente) & Caída uniforme y selectividad intermedia. & Transición más rápida y abrupta entre la banda de paso y la banda de atenuación, para un mismo orden. & Transición más lenta y gradual hacia la zona de atenuación. \\
+		\hline
+		Respuesta en el tiempo y fase & Respuesta de fase moderada; puede presentar cierto sobretiro ante señales transitorias. & Menor linealidad de fase; puede introducir más distorsión en la forma de onda temporal. & Excelente linealidad de fase y retardo de grupo aproximadamente constante en la banda de interés. Conserva mejor la forma de onda. \\
+		\hline
+		Orden y complejidad requerida & Puede requerir un orden intermedio para cumplir las especificaciones; por ejemplo, 4.\textsuperscript{o} orden (2 etapas) en un filtro pasa-bajas. & Puede alcanzar una atenuación determinada con un orden menor que Butterworth, dependiendo de las especificaciones y del rizado permitido. & Puede requerir un orden mayor para alcanzar la misma atenuación, debido a su transición más gradual. \\
+		\hline
+		Ventaja principal & Respuesta de amplitud plana en la banda de paso. & Mayor selectividad en frecuencia. & Mejor conservación de la forma de onda y de las características temporales. \\
+		\hline
+		Desventaja principal & Transición menos abrupta que Chebyshev. & Rizado en la banda de paso y mayor distorsión de fase. & Menor selectividad en frecuencia para un mismo orden. \\
+		\hline
+		Aplicaciones típicas & Audio, instrumentación y acondicionamiento general de señales. & Sistemas donde se necesita separar frecuencias con mayor rapidez. & Audio, pulsos y sistemas donde importa conservar la forma de onda. \\
+		\hline
+	\end{tabular}
+\end{table}
